@@ -146,18 +146,51 @@ export const getAllProperties = async () => {
   }
 };
 
-export const fetchingAddProperties = async () => {
+// Delete Property
+export const DeleteProperty = async (propertyId: string) => {
   try {
-    const response = await databases.listDocuments(
+    const response = await databases.deleteDocument(
       config.databaseId!,
-      config.addPropertiesCollectionId!
+      config.addPropertiesCollectionId!,
+      propertyId
     );
-    return response.documents; // Returns the list of documents
+    console.log("Property deleted successfully", response);
+    return response;
   } catch (error) {
-    console.error("Error fetching properties:", error);
-    return [];
+    console.error("Error deleting property:", error);
+    return null;
   }
 };
+
+// Update Property
+export const UpdateProperty = async (propertyId: string, updatedData: any) => {
+  try {
+    const response = await databases.updateDocument(
+      config.databaseId!,
+      config.addPropertiesCollectionId!,
+      propertyId,
+      updatedData
+    );
+    console.log("Property updated successfully", response);
+    return response;
+  } catch (error) {
+    console.error("Error updating property:", error);
+    return null;
+  }
+};
+
+// export const fetchingAddProperties = async () => {
+//   try {
+//     const response = await databases.listDocuments(
+//       config.databaseId!,
+//       config.addPropertiesCollectionId!
+//     );
+//     return response.documents; // Returns the list of documents
+//   } catch (error) {
+//     console.error("Error fetching properties:", error);
+//     return [];
+//   }
+// };
 
 export async function fetchingAddPropertiesById({ id }: { id: string }) {
   try {
@@ -172,6 +205,25 @@ export async function fetchingAddPropertiesById({ id }: { id: string }) {
     return null;
   }
 }
+// export const searchProperties = async (query: string) => {
+//   try {
+//     const response = await databases.listDocuments(
+//       config.databaseId!,
+//       config.addPropertiesCollectionId!,
+//       [
+//         Query.search("name", query),
+//         Query.search("type", query),
+//         Query.search("address", query),
+//       ]
+//     );
+//     console.log("API Response:", response); // Log the entire response to check if any properties are returned
+//     console.log("Search Results:", response.documents); // Log just the search results
+//     return response.documents;
+//   } catch (error) {
+//     console.error("Error searching properties:", error);
+//     return [];
+//   }
+// };
 
 export const createBooking = async (data: any) => {
   return await databases.createDocument(

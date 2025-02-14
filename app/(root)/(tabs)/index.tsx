@@ -1,7 +1,7 @@
 import { Card } from "@/components/Cards";
 import NoResults from "@/components/NoResults";
 import icons from "@/constants/icons";
-import { fetchingAddProperties } from "@/lib/appwrite";
+import { getAllProperties } from "@/lib/appwrite";
 import { useGlobalContext } from "@/lib/gloabal-provider";
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
@@ -16,7 +16,7 @@ const Home = () => {
   useEffect(() => {
     const getProperties = async () => {
       setLoading(true);
-      const data = await fetchingAddProperties();
+      const data = await getAllProperties();
       setProperties(data);
       setLoading(false);
     };

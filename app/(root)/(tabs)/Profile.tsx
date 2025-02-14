@@ -105,7 +105,7 @@ const Profile = () => {
         {isAdmin && (
           <View className="flex flex-col mt-10">
             <TouchableOpacity
-              onPress={() => router.push("/Admin/Add")}
+              onPress={() => router.push("/addProperty/Add")}
               className="flex flex-row items-center justify-between py-3"
             >
               <View className="flex flex-row items-center gap-3">
