@@ -296,7 +296,7 @@ const Property = () => {
     );
   };
 
- if (loading) {
+  if (loading) {
     return <Text>Loading...</Text>; // You can return a loading spinner or a message while waiting for role fetch
   }
 
@@ -340,6 +340,12 @@ const Property = () => {
               {property?.type}
             </Text>
           </View>
+        </View>
+        <View className="px-5 mt-3 flex-row items-center">
+          <Text>Contact: </Text>
+          <Text className="text-sm font-rubik-bold mt-1">
+            mahmudur.salman@gmail.com
+          </Text>
         </View>
 
         {/* Overview */}

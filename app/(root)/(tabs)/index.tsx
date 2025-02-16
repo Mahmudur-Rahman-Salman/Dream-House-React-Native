@@ -27,7 +27,7 @@ const Home = () => {
   return (
     <SafeAreaView className="h-full bg-white">
       <FlatList
-        data={properties}
+        data={properties.slice(0, 6)}
         numColumns={2}
         renderItem={({ item }) => (
           <Card item={item} onPress={() => handleCardPress(item.$id)} />
@@ -53,7 +53,7 @@ const Home = () => {
                 />
                 <View className="flex flex-col items-start ml-2 justify-center">
                   <Text className="text-xs font-rubik text-black-100">
-                    Good Morning
+                    Hello
                   </Text>
                   <Text className="text-base font-rubik-medium text-black-300">
                     {user?.name}
@@ -62,8 +62,9 @@ const Home = () => {
               </View>
               <Image source={icons.bell} className="size-6" />
             </View>
-
-            {/* <Search /> */}
+            <Text className="text-2xl font-rubik-bold text-black mt-5 text-center">
+              Featured Properties
+            </Text>
           </View>
         )}
       />

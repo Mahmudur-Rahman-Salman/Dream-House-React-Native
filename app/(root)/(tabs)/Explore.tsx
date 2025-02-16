@@ -63,6 +63,7 @@ const Explore = () => {
             <Text className="text-2xl font-rubik-bold text-black mt-5 text-center">
               Explore All Properties
             </Text>
+            <Text className="text-2xl font-rubik-bold text-black mt-5">List of properties : {properties.length}</Text>
           </View>
         )}
       />

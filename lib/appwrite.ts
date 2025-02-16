@@ -84,7 +84,7 @@ export async function login() {
 
     return { success: true, isAdmin };
   } catch (error) {
-    console.error(error);
+    // console.error(error);
     return { success: false };
   }
 }
@@ -99,7 +99,7 @@ export async function logout() {
     const result = await account.deleteSession("current");
     return result;
   } catch (error) {
-    console.error(error);
+    // console.error(error);
     return false;
   }
 }
@@ -107,7 +107,7 @@ export async function logout() {
 export async function getCurrentUser() {
   try {
     const result = await account.get();
-    console.log(result);
+    // console.log(result);
     if (result.$id) {
       const userAvatar = avatar.getInitials(result.name);
 
@@ -119,7 +119,7 @@ export async function getCurrentUser() {
 
     return null;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return null;
   }
 }
@@ -138,10 +138,10 @@ export const getAllProperties = async () => {
       config.databaseId!,
       config.addPropertiesCollectionId!
     );
-    console.log("All properties:", response.documents);
+    // console.log("All properties:", response.documents);
     return response.documents;
   } catch (error) {
-    console.error("Error fetching all properties:", error);
+    // console.error("Error fetching all properties:", error);
     return [];
   }
 };
@@ -154,10 +154,10 @@ export const DeleteProperty = async (propertyId: string) => {
       config.addPropertiesCollectionId!,
       propertyId
     );
-    console.log("Property deleted successfully", response);
+    // console.log("Property deleted successfully", response);
     return response;
   } catch (error) {
-    console.error("Error deleting property:", error);
+    // console.error("Error deleting property:", error);
     return null;
   }
 };
@@ -171,26 +171,13 @@ export const UpdateProperty = async (propertyId: string, updatedData: any) => {
       propertyId,
       updatedData
     );
-    console.log("Property updated successfully", response);
+    // console.log("Property updated successfully", response);
     return response;
   } catch (error) {
-    console.error("Error updating property:", error);
+    // console.error("Error updating property:", error);
     return null;
   }
 };
-
-// export const fetchingAddProperties = async () => {
-//   try {
-//     const response = await databases.listDocuments(
-//       config.databaseId!,
-//       config.addPropertiesCollectionId!
-//     );
-//     return response.documents; // Returns the list of documents
-//   } catch (error) {
-//     console.error("Error fetching properties:", error);
-//     return [];
-//   }
-// };
 
 export async function fetchingAddPropertiesById({ id }: { id: string }) {
   try {
@@ -205,25 +192,6 @@ export async function fetchingAddPropertiesById({ id }: { id: string }) {
     return null;
   }
 }
-// export const searchProperties = async (query: string) => {
-//   try {
-//     const response = await databases.listDocuments(
-//       config.databaseId!,
-//       config.addPropertiesCollectionId!,
-//       [
-//         Query.search("name", query),
-//         Query.search("type", query),
-//         Query.search("address", query),
-//       ]
-//     );
-//     console.log("API Response:", response); // Log the entire response to check if any properties are returned
-//     console.log("Search Results:", response.documents); // Log just the search results
-//     return response.documents;
-//   } catch (error) {
-//     console.error("Error searching properties:", error);
-//     return [];
-//   }
-// };
 
 export const createBooking = async (data: any) => {
   return await databases.createDocument(

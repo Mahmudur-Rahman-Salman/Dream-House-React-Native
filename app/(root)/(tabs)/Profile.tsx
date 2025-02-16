@@ -54,7 +54,7 @@ const Profile = () => {
   useEffect(() => {
     const checkRole = async () => {
       const role = await AsyncStorage.getItem("userRole");
-      console.log("user role : ", role);
+      // console.log("user role : ", role);
       setIsAdmin(role === "admin");
       setLoading(false);
     };
