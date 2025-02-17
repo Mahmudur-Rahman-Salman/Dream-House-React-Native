@@ -7,11 +7,10 @@ import {
   Image,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import { getAllBookings } from "@/lib/appwrite"; // Import getAllBookings function
-import { Dimensions } from "react-native";
+import { getAllBookings } from "@/lib/appwrite"; 
 
-// Get the screen width and height
-const { width, height } = Dimensions.get("window");
+
+
 
 interface Booking {
   $id: string;
@@ -32,8 +31,8 @@ const BookingScreen = () => {
 
   const fetchBookings = async () => {
     try {
-      const allBookings = await getAllBookings(); // Fetch all bookings
-      console.log("Fetched All Bookings:", allBookings);
+      const allBookings = await getAllBookings(); 
+      // console.log("Fetched All Bookings:", allBookings);
       const bookingsData: Booking[] = allBookings.map((booking: any) => ({
         $id: booking.$id,
         userId: booking.userId,

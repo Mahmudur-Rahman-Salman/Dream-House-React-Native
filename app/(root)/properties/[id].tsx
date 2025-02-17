@@ -280,7 +280,7 @@ const Property = () => {
           text: "Delete",
           onPress: async () => {
             try {
-              await DeleteProperty(id!); // Pass the property ID to the delete function
+              await DeleteProperty(id!); 
               Alert.alert("Success", "Property has been deleted.");
               router.push("/Explore"); // Redirect to explore page after deletion
             } catch (error) {
@@ -297,7 +297,7 @@ const Property = () => {
   };
 
   if (loading) {
-    return <Text>Loading...</Text>; // You can return a loading spinner or a message while waiting for role fetch
+    return <Text>Loading...</Text>; //return a loading spinner or a message while waiting for role fetch
   }
 
   return (

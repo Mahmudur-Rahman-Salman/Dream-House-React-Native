@@ -162,22 +162,7 @@ export const DeleteProperty = async (propertyId: string) => {
   }
 };
 
-// Update Property
-export const UpdateProperty = async (propertyId: string, updatedData: any) => {
-  try {
-    const response = await databases.updateDocument(
-      config.databaseId!,
-      config.addPropertiesCollectionId!,
-      propertyId,
-      updatedData
-    );
-    // console.log("Property updated successfully", response);
-    return response;
-  } catch (error) {
-    // console.error("Error updating property:", error);
-    return null;
-  }
-};
+
 
 export async function fetchingAddPropertiesById({ id }: { id: string }) {
   try {
@@ -208,10 +193,10 @@ export const getAllBookings = async () => {
       config.databaseId!,
       config.bookingCollectionId!
     );
-    console.log("All Bookings:", response.documents);
+    // console.log("All Bookings:", response.documents);
     return response.documents;
   } catch (error) {
-    console.error("Error fetching all bookings:", error);
+    // console.error("Error fetching all bookings:", error);
     return [];
   }
 };
